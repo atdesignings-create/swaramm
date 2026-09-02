@@ -61,75 +61,87 @@
   --color-sidebar-ring: var(--sidebar-ring);
 }
 
+/* Swaram — calming pastel: warm sand background, teal voice, soft clay accents. */
 :root {
-  --radius: 0.625rem;
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.129 0.042 264.695);
-  --card: oklch(1 0 0);
-  --card-foreground: oklch(0.129 0.042 264.695);
-  --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.129 0.042 264.695);
-  --primary: oklch(0.208 0.042 265.755);
-  --primary-foreground: oklch(0.984 0.003 247.858);
-  --secondary: oklch(0.968 0.007 247.896);
-  --secondary-foreground: oklch(0.208 0.042 265.755);
-  --muted: oklch(0.968 0.007 247.896);
-  --muted-foreground: oklch(0.554 0.046 257.417);
-  --accent: oklch(0.968 0.007 247.896);
-  --accent-foreground: oklch(0.208 0.042 265.755);
-  --destructive: oklch(0.577 0.245 27.325);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(0.929 0.013 255.508);
-  --input: oklch(0.929 0.013 255.508);
-  --ring: oklch(0.704 0.04 256.788);
-  --chart-1: oklch(0.646 0.222 41.116);
-  --chart-2: oklch(0.6 0.118 184.704);
-  --chart-3: oklch(0.398 0.07 227.392);
-  --chart-4: oklch(0.828 0.189 84.429);
-  --chart-5: oklch(0.769 0.188 70.08);
-  --sidebar: oklch(0.984 0.003 247.858);
-  --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.208 0.042 265.755);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.968 0.007 247.896);
-  --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
-  --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.704 0.04 256.788);
+  --radius: 1rem;
+  --background: oklch(0.985 0.012 95);
+  --foreground: oklch(0.28 0.03 200);
+  --card: oklch(1 0.006 95);
+  --card-foreground: oklch(0.28 0.03 200);
+  --popover: oklch(1 0.006 95);
+  --popover-foreground: oklch(0.28 0.03 200);
+  --primary: oklch(0.62 0.1 190);
+  --primary-foreground: oklch(0.99 0.01 190);
+  --secondary: oklch(0.94 0.03 175);
+  --secondary-foreground: oklch(0.34 0.05 195);
+  --muted: oklch(0.95 0.015 90);
+  --muted-foreground: oklch(0.52 0.03 200);
+  --accent: oklch(0.9 0.06 55);
+  --accent-foreground: oklch(0.33 0.07 45);
+  --destructive: oklch(0.62 0.16 25);
+  --destructive-foreground: oklch(0.99 0.01 25);
+  --border: oklch(0.9 0.02 120);
+  --input: oklch(0.9 0.02 120);
+  --ring: oklch(0.7 0.09 190);
+  --chart-1: oklch(0.62 0.1 190);
+  --chart-2: oklch(0.72 0.09 145);
+  --chart-3: oklch(0.75 0.1 60);
+  --chart-4: oklch(0.65 0.09 300);
+  --chart-5: oklch(0.68 0.11 20);
+  --sidebar: oklch(0.97 0.015 95);
+  --sidebar-foreground: oklch(0.28 0.03 200);
+  --sidebar-primary: oklch(0.62 0.1 190);
+  --sidebar-primary-foreground: oklch(0.99 0.01 190);
+  --sidebar-accent: oklch(0.94 0.03 175);
+  --sidebar-accent-foreground: oklch(0.34 0.05 195);
+  --sidebar-border: oklch(0.9 0.02 120);
+  --sidebar-ring: oklch(0.7 0.09 190);
+
+  /* Canvas colours used by the live pitch curve. */
+  --swaram-curve: #0f9c98;
+  --swaram-band: #7fded6;
+  --swaram-grid: #e6e3da;
 }
 
+
+/* Swaram — dark: deep midnight teal, kind to late-night practice. */
 .dark {
-  --background: oklch(0.129 0.042 264.695);
-  --foreground: oklch(0.984 0.003 247.858);
-  --card: oklch(0.208 0.042 265.755);
-  --card-foreground: oklch(0.984 0.003 247.858);
-  --popover: oklch(0.208 0.042 265.755);
-  --popover-foreground: oklch(0.984 0.003 247.858);
-  --primary: oklch(0.929 0.013 255.508);
-  --primary-foreground: oklch(0.208 0.042 265.755);
-  --secondary: oklch(0.279 0.041 260.031);
-  --secondary-foreground: oklch(0.984 0.003 247.858);
-  --muted: oklch(0.279 0.041 260.031);
-  --muted-foreground: oklch(0.704 0.04 256.788);
-  --accent: oklch(0.279 0.041 260.031);
-  --accent-foreground: oklch(0.984 0.003 247.858);
-  --destructive: oklch(0.704 0.191 22.216);
-  --destructive-foreground: oklch(0.984 0.003 247.858);
-  --border: oklch(1 0 0 / 10%);
-  --input: oklch(1 0 0 / 15%);
-  --ring: oklch(0.551 0.027 264.364);
-  --chart-1: oklch(0.488 0.243 264.376);
-  --chart-2: oklch(0.696 0.17 162.48);
-  --chart-3: oklch(0.769 0.188 70.08);
-  --chart-4: oklch(0.627 0.265 303.9);
-  --chart-5: oklch(0.645 0.246 16.439);
-  --sidebar: oklch(0.208 0.042 265.755);
-  --sidebar-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-primary: oklch(0.488 0.243 264.376);
-  --sidebar-primary-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-accent: oklch(0.279 0.041 260.031);
-  --sidebar-accent-foreground: oklch(0.984 0.003 247.858);
-  --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.551 0.027 264.364);
+  --background: oklch(0.19 0.025 235);
+  --foreground: oklch(0.95 0.012 190);
+  --card: oklch(0.235 0.028 232);
+  --card-foreground: oklch(0.95 0.012 190);
+  --popover: oklch(0.235 0.028 232);
+  --popover-foreground: oklch(0.95 0.012 190);
+  --primary: oklch(0.74 0.11 185);
+  --primary-foreground: oklch(0.18 0.03 210);
+  --secondary: oklch(0.3 0.035 225);
+  --secondary-foreground: oklch(0.94 0.015 190);
+  --muted: oklch(0.28 0.03 228);
+  --muted-foreground: oklch(0.72 0.03 200);
+  --accent: oklch(0.42 0.06 45);
+  --accent-foreground: oklch(0.95 0.03 60);
+  --destructive: oklch(0.65 0.16 25);
+  --destructive-foreground: oklch(0.97 0.01 25);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.68 0.09 190);
+  --chart-1: oklch(0.74 0.11 185);
+  --chart-2: oklch(0.75 0.1 145);
+  --chart-3: oklch(0.78 0.11 65);
+  --chart-4: oklch(0.7 0.1 300);
+  --chart-5: oklch(0.7 0.12 20);
+  --sidebar: oklch(0.235 0.028 232);
+  --sidebar-foreground: oklch(0.95 0.012 190);
+  --sidebar-primary: oklch(0.74 0.11 185);
+  --sidebar-primary-foreground: oklch(0.18 0.03 210);
+  --sidebar-accent: oklch(0.3 0.035 225);
+  --sidebar-accent-foreground: oklch(0.94 0.015 190);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.68 0.09 190);
+
+  --swaram-curve: #5eead4;
+  --swaram-band: #0f766e;
+  --swaram-grid: #2b3a44;
 }
 
 @layer base {
@@ -140,5 +152,46 @@
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
+    font-family: "Nunito", ui-sans-serif, system-ui, sans-serif;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: "Fraunces", "Nunito", ui-serif, Georgia, serif;
+    letter-spacing: -0.01em;
   }
 }
+
+/* Gentle motion vocabulary used across Swaram. */
+@keyframes swaram-breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  50% {
+    transform: scale(1.08);
+    opacity: 1;
+  }
+}
+
+@keyframes swaram-rise {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@utility animate-breathe {
+  animation: swaram-breathe 4s ease-in-out infinite;
+}
+
+@utility animate-rise {
+  animation: swaram-rise 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
