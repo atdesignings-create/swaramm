@@ -140,7 +140,7 @@ export class AudioEngine {
 
     const loop = () => {
       if (!this.analyser || !this.buffer) return;
-      this.analyser.getFloatTimeDomainData(this.buffer);
+      this.analyser.getFloatTimeDomainData(this.buffer as Float32Array<ArrayBuffer>);
       const result = detectPitch(this.buffer, ctx.sampleRate, this.sensitivity);
       const sample: PitchSample = { ...result, timestamp: performance.now() };
       this.listeners.forEach((fn) => fn(sample));
