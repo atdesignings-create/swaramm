@@ -183,10 +183,10 @@ function buildAll(): Exercise[] {
     for (const level of cat.levels) {
       const tempoCount = Math.min(TEMPOS.length, 1 + Math.floor(level / 3));
       for (let p = 0; p < cat.patterns.length; p++) {
-        const pattern = cat.patterns[p];
+        const pattern = cat.patterns[p]!;
         for (let r = 0; r < ROOTS.length; r++) {
           for (let ti = 0; ti < tempoCount; ti++) {
-            const root = ROOTS[r];
+            const root = ROOTS[r]!;
             const notes = pattern.steps.map((s) => root + s);
             if (notes.some((n) => n < 40 || n > 84)) continue;
             const rootName = midiToName(root);
@@ -200,7 +200,7 @@ function buildAll(): Exercise[] {
               tipMl: cat.tipMl,
               notes,
               noteNames: notes.map(midiToName),
-              tempoMs: TEMPOS[ti],
+              tempoMs: TEMPOS[ti]!,
             });
           }
         }
@@ -242,7 +242,7 @@ export function pickLessonExercises(
   const picked: Exercise[] = [];
   const stride = Math.max(1, Math.floor(pool.length / count));
   for (let i = 0; i < count; i++) {
-    picked.push(pool[(seed + i * stride) % pool.length]);
+    picked.push(pool[(seed + i * stride) % pool.length]!);
   }
   return picked;
 }
