@@ -41,7 +41,7 @@ function HomePage() {
   const lang = state.lang;
   const [showDiag, setShowDiag] = useState(false);
   const level = currentLevel(state);
-  const levelInfo = CURRICULUM[level - 1];
+  const levelInfo = CURRICULUM[level - 1]!;
   const mastery = state.mastery[level] ?? 0;
 
   return (

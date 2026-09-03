@@ -227,7 +227,7 @@ export function weeklyPlan(s: SwaramState): { day: string; focus: ExerciseKind; 
   const days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return days.map((day, i) => ({
     day,
-    focus: i === 0 ? "breath" : rotation[i % rotation.length],
+    focus: i === 0 ? "breath" : rotation[i % rotation.length]!,
     minutes: i === 6 ? 20 : 10 + (i % 3) * 5,
   }));
 }

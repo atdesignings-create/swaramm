@@ -92,7 +92,7 @@ function SettingsPage() {
           max={60}
           step={1}
           value={[Math.round(state.sensitivity * 1000)]}
-          onValueChange={([v]) => update({ sensitivity: v / 1000 })}
+          onValueChange={([v]) => update({ sensitivity: (v ?? 15) / 1000 })}
         />
         <p className="mt-2 text-right text-xs text-muted-foreground">
           {Math.round(state.sensitivity * 1000)}
