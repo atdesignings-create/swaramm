@@ -15,7 +15,7 @@ import { midiToName } from "@/lib/swaram/music";
 interface Props {
   historyRef: React.RefObject<number[]>;
   /** Target MIDI note to draw as the guide band (optional). */
-  targetMidi?: number | null;
+  targetMidi?: number | null | undefined;
   className?: string;
 }
 
@@ -45,7 +45,7 @@ export function PitchCanvas({ historyRef, targetMidi, className }: Props) {
       const history = historyRef.current ?? [];
       const target = targetRef.current;
       const values = history.filter((v) => Number.isFinite(v));
-      const centre = target ?? (values.length ? values[values.length - 1] : 60);
+      const centre = target ?? (values.length ? values[values.length - 1]! : 60);
       const span = 14; // semitones visible top-to-bottom
       const yFor = (midi: number) => h / 2 - ((midi - centre) / span) * h;
 
@@ -93,7 +93,7 @@ export function PitchCanvas({ historyRef, targetMidi, className }: Props) {
         });
         ctx.stroke();
 
-        const lastY = yFor(values[values.length - 1]);
+        const lastY = yFor(values[values.length - 1]!);
         ctx.fillStyle = line;
         ctx.beginPath();
         ctx.arc(w - 4, lastY, 5, 0, Math.PI * 2);

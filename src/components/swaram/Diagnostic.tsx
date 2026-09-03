@@ -35,7 +35,7 @@ export function Diagnostic({ onDone }: { onDone: () => void }) {
 
   useEffect(() => {
     if (!recording || !pitch.reading) return;
-    collected.current[step].push(pitch.reading.midi);
+    collected.current[step]!.push(pitch.reading.midi);
   }, [recording, pitch.reading, step]);
 
   /** WHAT: Records one step for 5 seconds, then advances or summarises. */
@@ -49,11 +49,13 @@ export function Diagnostic({ onDone }: { onDone: () => void }) {
         setStep(step + 1);
         return;
       }
-      const [lows, highs, holds] = collected.current;
+      const lows = collected.current[0]!;
+      const highs = collected.current[1]!;
+      const holds = collected.current[2]!;
       const median = (arr: number[]) => {
         if (!arr.length) return null;
         const s = [...arr].sort((a, b) => a - b);
-        return s[Math.floor(s.length / 2)];
+        return s[Math.floor(s.length / 2)]!;
       };
       const low = median(lows) ?? 48;
       const high = median(highs) ?? 64;
@@ -125,7 +127,7 @@ export function Diagnostic({ onDone }: { onDone: () => void }) {
       <p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
         {t(lang, "step")} {step + 1} / 3
       </p>
-      <h2 className="mt-2 text-xl font-semibold">{t(lang, STEPS[step])}</h2>
+      <h2 className="mt-2 text-xl font-semibold">{t(lang, STEPS[step]!)}</h2>
       <p className="mt-2 flex items-start gap-2 text-sm text-muted-foreground">
         <Wind className="mt-0.5 size-4 shrink-0" />
         {t(lang, "diagHint")}

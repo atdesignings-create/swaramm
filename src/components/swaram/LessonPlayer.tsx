@@ -47,7 +47,7 @@ export function LessonPlayer({
   const startedAt = useRef(Date.now());
   const samples = useRef<number[]>([]);
 
-  const target = exercise.notes[index];
+  const target = exercise.notes[index]!;
 
   // Collect sung MIDI values while in the "sing" phase.
   useEffect(() => {
@@ -71,7 +71,7 @@ export function LessonPlayer({
       let score = 0;
       if (vals.length >= 3) {
         const sorted = [...vals].sort((a, b) => a - b);
-        const median = sorted[Math.floor(sorted.length / 2)];
+        const median = sorted[Math.floor(sorted.length / 2)]!;
         // Octave-forgiving: singing the right note an octave off still counts.
         const diff = median - target;
         const folded = diff - 12 * Math.round(diff / 12);
