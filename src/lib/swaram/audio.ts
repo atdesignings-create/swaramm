@@ -34,7 +34,7 @@ export function detectPitch(
 ): { freq: number | null; volume: number; clarity: number } {
   const size = buffer.length;
   let sumSquares = 0;
-  for (let i = 0; i < size; i++) sumSquares += buffer[i] * buffer[i];
+  for (let i = 0; i < size; i++) sumSquares += buffer[i]! * buffer[i]!;
   const rms = Math.sqrt(sumSquares / size);
   if (rms < minVolume) return { freq: null, volume: rms, clarity: 0 };
 
@@ -42,8 +42,8 @@ export function detectPitch(
   const threshold = 0.2;
   let start = 0;
   let end = size - 1;
-  while (start < size / 2 && Math.abs(buffer[start]) < threshold) start++;
-  while (end > size / 2 && Math.abs(buffer[end]) < threshold) end--;
+  while (start < size / 2 && Math.abs(buffer[start]!) < threshold) start++;
+  while (end > size / 2 && Math.abs(buffer[end]!) < threshold) end--;
   const trimmed = buffer.slice(start, end);
   const n = trimmed.length;
   if (n < 128) return { freq: null, volume: rms, clarity: 0 };
@@ -51,18 +51,18 @@ export function detectPitch(
   const correlations = new Float32Array(n).fill(0);
   for (let lag = 0; lag < n; lag++) {
     let sum = 0;
-    for (let i = 0; i < n - lag; i++) sum += trimmed[i] * trimmed[i + lag];
+    for (let i = 0; i < n - lag; i++) sum += trimmed[i]! * trimmed[i + lag]!;
     correlations[lag] = sum;
   }
 
   // Walk past the initial downward slope, then find the first strong peak.
   let d = 0;
-  while (d < n - 1 && correlations[d] > correlations[d + 1]) d++;
+  while (d < n - 1 && correlations[d]! > correlations[d + 1]!) d++;
   let maxVal = -1;
   let maxLag = -1;
   for (let lag = d; lag < n; lag++) {
-    if (correlations[lag] > maxVal) {
-      maxVal = correlations[lag];
+    if (correlations[lag]! > maxVal) {
+      maxVal = correlations[lag]!;
       maxLag = lag;
     }
   }
@@ -70,13 +70,15 @@ export function detectPitch(
 
   // Parabolic interpolation around the peak for fractional-lag precision.
   const y1 = correlations[maxLag - 1] ?? 0;
-  const y2 = correlations[maxLag];
+  const y2 = correlations[maxLag] ?? 0;
   const y3 = correlations[maxLag + 1] ?? 0;
   const a = (y1 + y3 - 2 * y2) / 2;
   const b = (y3 - y1) / 2;
   const shift = a !== 0 ? -b / (2 * a) : 0;
   const freq = sampleRate / (maxLag + shift);
-  const clarity = correlations[0] > 0 ? Math.min(1, maxVal / correlations[0]) : 0;
+  const zero = correlations[0] ?? 0;
+  const clarity = zero > 0 ? Math.min(1, maxVal / zero) : 0;
+
 
   // Human voice lives roughly between 60 Hz and 1300 Hz — reject the rest.
   if (freq < 60 || freq > 1300 || clarity < 0.45) {
