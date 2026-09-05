@@ -79,7 +79,22 @@ const en: Dict = {
   category: "Category",
   library: "Exercise library",
   librarySub: "Warm-ups, agility drills and breath work, generated fresh every time.",
+  songs: "Songs",
+  coach: "Coach",
+  songLib: "Song practice",
+  songSub: "Malayalam classics, folk, light music and international starters.",
+  playSong: "Play & sing",
+  lines: "lines",
+  pasteLyrics: "Or paste your own lyrics",
+  pasteGo: "Practise these lyrics",
+  songReport: "Line-by-line report",
+  ask: "Ask the coach",
+  askIntro:
+    "Hello! I'm your Swaram coach. Ask me anything — cracking on high notes, breath support, gamaka, stage nerves. There are no silly questions here.",
+  askPlaceholder: "Ask me anything about singing…",
+  send: "Ask",
 };
+
 
 const ml: Dict = {
   appName: "സ്വരം",
