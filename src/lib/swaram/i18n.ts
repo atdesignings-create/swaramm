@@ -79,7 +79,22 @@ const en: Dict = {
   category: "Category",
   library: "Exercise library",
   librarySub: "Warm-ups, agility drills and breath work, generated fresh every time.",
+  songs: "Songs",
+  coach: "Coach",
+  songLib: "Song practice",
+  songSub: "Malayalam classics, folk, light music and international starters.",
+  playSong: "Play & sing",
+  lines: "lines",
+  pasteLyrics: "Or paste your own lyrics",
+  pasteGo: "Practise these lyrics",
+  songReport: "Line-by-line report",
+  ask: "Ask the coach",
+  askIntro:
+    "Hello! I'm your Swaram coach. Ask me anything — cracking on high notes, breath support, gamaka, stage nerves. There are no silly questions here.",
+  askPlaceholder: "Ask me anything about singing…",
+  send: "Ask",
 };
+
 
 const ml: Dict = {
   appName: "സ്വരം",
@@ -145,7 +160,22 @@ const ml: Dict = {
   category: "വിഭാഗം",
   library: "വ്യായാമ ശേഖരം",
   librarySub: "വാം-അപ്പുകൾ, ചടുലതാ പരിശീലനങ്ങൾ, ശ്വാസ വ്യായാമങ്ങൾ.",
+  songs: "പാട്ടുകൾ",
+  coach: "പരിശീലകൻ",
+  songLib: "പാട്ട് പരിശീലനം",
+  songSub: "മലയാള ക്ലാസിക്കുകൾ, നാടൻ പാട്ട്, ലളിതഗാനം, അന്താരാഷ്ട്ര പാട്ടുകൾ.",
+  playSong: "പാടി നോക്കൂ",
+  lines: "വരികൾ",
+  pasteLyrics: "അല്ലെങ്കിൽ സ്വന്തം വരികൾ ഒട്ടിക്കൂ",
+  pasteGo: "ഈ വരികൾ പരിശീലിക്കൂ",
+  songReport: "വരി തിരിച്ചുള്ള റിപ്പോർട്ട്",
+  ask: "പരിശീലകനോട് ചോദിക്കൂ",
+  askIntro:
+    "നമസ്കാരം! ഞാൻ നിങ്ങളുടെ സ്വരം പരിശീലകൻ. എന്തും ചോദിക്കൂ — ഉയർന്ന സ്വരത്തിൽ ശബ്ദം പൊട്ടുന്നത്, ശ്വാസ പിന്തുണ, ഗമകം, വേദിയിലെ പേടി.",
+  askPlaceholder: "പാട്ടിനെക്കുറിച്ച് എന്തും ചോദിക്കൂ…",
+  send: "ചോദിക്കൂ",
 };
+
 
 export const dictionaries: Record<LangCode, Dict> = { en, ml };
 

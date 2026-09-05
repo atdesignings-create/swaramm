@@ -10,14 +10,21 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoachRouteImport } from './routes/coach'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as LessonsRouteImport } from './routes/lessons'
 import { Route as PracticeRouteImport } from './routes/practice'
 import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as SongsRouteImport } from './routes/songs'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoachRoute = CoachRouteImport.update({
+  id: '/coach',
+  path: '/coach',
   getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardRoute = DashboardRouteImport.update({
@@ -40,43 +47,78 @@ const SettingsRoute = SettingsRouteImport.update({
   path: '/settings',
   getParentRoute: () => rootRouteImport,
 } as any)
+const SongsRoute = SongsRouteImport.update({
+  id: '/songs',
+  path: '/songs',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/coach': typeof CoachRoute
   '/dashboard': typeof DashboardRoute
   '/lessons': typeof LessonsRoute
   '/practice': typeof PracticeRoute
   '/settings': typeof SettingsRoute
+  '/songs': typeof SongsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/coach': typeof CoachRoute
   '/dashboard': typeof DashboardRoute
   '/lessons': typeof LessonsRoute
   '/practice': typeof PracticeRoute
   '/settings': typeof SettingsRoute
+  '/songs': typeof SongsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/coach': typeof CoachRoute
   '/dashboard': typeof DashboardRoute
   '/lessons': typeof LessonsRoute
   '/practice': typeof PracticeRoute
   '/settings': typeof SettingsRoute
+  '/songs': typeof SongsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/dashboard' | '/lessons' | '/practice' | '/settings'
+  fullPaths:
+    | '/'
+    | '/coach'
+    | '/dashboard'
+    | '/lessons'
+    | '/practice'
+    | '/settings'
+    | '/songs'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/dashboard' | '/lessons' | '/practice' | '/settings'
-  id: '__root__' | '/' | '/dashboard' | '/lessons' | '/practice' | '/settings'
+  to:
+    | '/'
+    | '/coach'
+    | '/dashboard'
+    | '/lessons'
+    | '/practice'
+    | '/settings'
+    | '/songs'
+  id:
+    | '__root__'
+    | '/'
+    | '/coach'
+    | '/dashboard'
+    | '/lessons'
+    | '/practice'
+    | '/settings'
+    | '/songs'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  CoachRoute: typeof CoachRoute
   DashboardRoute: typeof DashboardRoute
   LessonsRoute: typeof LessonsRoute
   PracticeRoute: typeof PracticeRoute
   SettingsRoute: typeof SettingsRoute
+  SongsRoute: typeof SongsRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -86,6 +128,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/coach': {
+      id: '/coach'
+      path: '/coach'
+      fullPath: '/coach'
+      preLoaderRoute: typeof CoachRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/dashboard': {
@@ -116,15 +165,24 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SettingsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/songs': {
+      id: '/songs'
+      path: '/songs'
+      fullPath: '/songs'
+      preLoaderRoute: typeof SongsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  CoachRoute: CoachRoute,
   DashboardRoute: DashboardRoute,
   LessonsRoute: LessonsRoute,
   PracticeRoute: PracticeRoute,
   SettingsRoute: SettingsRoute,
+  SongsRoute: SongsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
