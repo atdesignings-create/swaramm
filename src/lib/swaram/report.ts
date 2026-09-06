@@ -50,7 +50,7 @@ export function buildReport(state: SwaramState): ReportModel {
   const nextSteps = [
     ...plan.map((p) => `${p.day}: ${catName(p.focus)} — ${p.minutes} minutes`),
     weak[0]
-      ? `Give extra care to ${catName(weak[0].area ?? weak[0].kind)} — it is currently your lowest scoring drill type.`
+      ? `Give extra care to ${catName(weak[0].kind)} — it is currently your lowest scoring drill type.`
       : "Complete a few lessons so Swaram can spot your weak points.",
     "Warm up first: smell the flower, blow out the candle. Never push a sore throat.",
   ];
