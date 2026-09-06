@@ -9,7 +9,15 @@
 
 import { Link } from "@tanstack/react-router";
 import { useEffect, type ReactNode } from "react";
-import { Home, GraduationCap, Mic2, BarChart3, Settings2 } from "lucide-react";
+import {
+  Home,
+  GraduationCap,
+  Mic2,
+  Music2,
+  MessageCircle,
+  BarChart3,
+  Settings2,
+} from "lucide-react";
 import { useSwaram } from "@/lib/swaram/store";
 import { t } from "@/lib/swaram/i18n";
 import { cn } from "@/lib/utils";
@@ -18,9 +26,12 @@ const NAV = [
   { to: "/", key: "home", Icon: Home },
   { to: "/lessons", key: "lessons", Icon: GraduationCap },
   { to: "/practice", key: "practice", Icon: Mic2 },
+  { to: "/songs", key: "songs", Icon: Music2 },
   { to: "/dashboard", key: "dashboard", Icon: BarChart3 },
+  { to: "/coach", key: "coach", Icon: MessageCircle },
   { to: "/settings", key: "settings", Icon: Settings2 },
 ] as const;
+
 
 export function AppShell({ children }: { children: ReactNode }) {
   const state = useSwaram();
